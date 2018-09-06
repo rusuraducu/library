@@ -10,39 +10,25 @@ public class LibrarianMenu {
         User librarian = Login.getUsernameInstance("Grigore", "myPassword");
         UserOptions librarianOptions = UserOptions.getUserOptions(librarian);
 
-        // librarianOptions.addNewBookToDatabaseUsingScanner();
+        //  librarianOptions.addNewBookToDatabaseUsingScanner();
 
-        // librarianOptions.showAllBooksFromLibrary();
+        //  librarianOptions.showAllBooksFromLibrary();
 
-        //--->Actualizeaza Carte
+        //  Book book = BookProcessor.loadBookInstance("Povesti");
+        //  book.setAuthor("Ion Creanga");
+        //  librarianOptions.updateBookDetails(book);
 
-        //Book book = BookProcessor.loadBookInstance("Povesti");
-        //book.setAuthor("Ion Creanca");
-        //librarianOptions.updateBookDetails(book);
+        //  librarianOptions.lendBook(BookProcessor.loadBookInstance("Baltagul"), UserProcessor.loadUserInstance("Gratian"));
 
-        //--->Imprumuta carte
+        //  librarianOptions.returnBook(BookProcessor.loadBookInstance("Baltagul"));
 
-        //librarianOptions.lendBook(BookProcessor.loadBookInstance("Baltagul"), UserProcessor.loadUserInstance("Gratian"));
+        //  librarianOptions.retireBook(BookProcessor.loadBookInstance("Baltagul"), RetireReason.DESTROYED);
 
-        //--->Returneaza carte
+        //  librarianOptions.printCurrentlyLentItems();
 
-        //librarianOptions.returnBook(BookProcessor.loadBookInstance("Baltagul"));
+        //  librarianOptions.printLentBooksWhichAreOverdue();
 
-        //--->Retrage o carte
-
-        //librarianOptions.retireBook(BookProcessor.loadBookInstance("Baltagul"), RetireReason.DESTROYED);
-
-        //--->Afiseaza cartile imprumutate momentan.
-
-        // librarianOptions.printCurrentlyLentItems();
-
-        //--->Afiseaza cartile care au depasit perioada pentru care au fost imprumutate
-
-        // librarianOptions.printLentBooksWhichAreOverdue();
-
-        //-->Afiseaza carti drintr-o anumita categorie
-
-        //librarianOptions.showBooksUsingFilter(new BookFilter(CategoryProcessor.loadCategoryInstance("Literatura")));
+        //  librarianOptions.showBooksUsingFilter(new BookFilter(CategoryProcessor.loadCategoryInstance("Literatura")));
 
     }
 }
