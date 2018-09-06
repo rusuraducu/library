@@ -20,7 +20,7 @@ public class LibrarianMenu {
         //book.setAuthor("Ion Creanca");
         //librarianOptions.updateBookDetails(book);
 
-        //--->Lend book
+        //--->Imprumuta carte
 
         //librarianOptions.lendBook(BookProcessor.loadBookInstance("Baltagul"), UserProcessor.loadUserInstance("Gratian"));
 
@@ -32,15 +32,15 @@ public class LibrarianMenu {
 
         //librarianOptions.retireBook(BookProcessor.loadBookInstance("Baltagul"), RetireReason.DESTROYED);
 
-        //Afiseaza cartile imprumutate momentan.
+        //--->Afiseaza cartile imprumutate momentan.
 
         // librarianOptions.printCurrentlyLentItems();
 
-        //Afiseaza cartile care au depasit perioada pentru care au fost imprumutate
+        //--->Afiseaza cartile care au depasit perioada pentru care au fost imprumutate
 
         // librarianOptions.printLentBooksWhichAreOverdue();
 
-        //Get books from category
+        //-->Afiseaza carti drintr-o anumita categorie
 
         //librarianOptions.showBooksUsingFilter(new BookFilter(CategoryProcessor.loadCategoryInstance("Literatura")));
 
