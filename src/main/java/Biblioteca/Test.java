@@ -11,7 +11,7 @@ public class Test {
         User admin = Login.getUsernameInstance("Raducu", "myPassword");
         UserOptions adminOptions = UserOptions.getUserOptions(admin);
 
-        //Adauna un nou utilizator:                 //adminOptions.addNewUserToDatabase();
+        //Adauga un nou utilizator:                 //adminOptions.addNewUserToDatabase();
 
         //Afiseaza lista utilizatori:               //adminOptions.printListOfUsers();
 
