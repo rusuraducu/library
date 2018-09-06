@@ -11,21 +11,17 @@ public class Test {
         User admin = Login.getUsernameInstance("Raducu", "myPassword");
         UserOptions adminOptions = UserOptions.getUserOptions(admin);
 
-        //Adauga un nou utilizator:                 //adminOptions.addNewUserToDatabase();
+        //adminOptions.addNewUserToDatabase();
 
-        //Afiseaza lista utilizatori:               //adminOptions.printListOfUsers();
+        //adminOptions.printListOfUsers();
 
-        //Cauta utilizator in baza de date         //adminOptions.searchUser("Raducu");
+        //adminOptions.searchUser("Raducu");
 
-        //Update user
+        //User user01 = UserProcessor.loadUserInstance("Marius");
+        //user01.setEmail("marius@gmail.com");
+        //adminOptions.updateUserFromDatabase(user01);
 
-                //User user01 = UserProcessor.loadUserInstance("Marius");
-                //user01.setEmail("marius@gmail.com");
-                //adminOptions.updateUserFromDatabase(user01);
-
-        //Delete user
-
-                //adminOptions.deleteUserFromDatabase(UserProcessor.loadUserInstance("Bogdan"));
+        //adminOptions.deleteUserFromDatabase(UserProcessor.loadUserInstance("Bogdan"));
 
 
 
