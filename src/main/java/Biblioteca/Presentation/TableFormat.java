@@ -15,6 +15,13 @@ public class TableFormat {
         return tableFormat;
     }
 
+    public static void main(String[] args) {
+
+        for (String s: new TableFormat().getTableFormatForBooksList()){
+            System.out.format(s);
+        }
+    }
+
     public String [] getTableFormatForLentBooks(){
 
         String [] tableFormat = new String[6];

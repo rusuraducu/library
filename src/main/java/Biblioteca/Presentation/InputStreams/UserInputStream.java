@@ -4,6 +4,7 @@ import Biblioteca.Actions.UserProcessor;
 import Biblioteca.DAO.Rank.Rank;
 import Biblioteca.DAO.User.User;
 import Biblioteca.Presentation.OutputStreams.RankOutputStream;
+import Biblioteca.Presentation.OutputStreams.UserOutputStream;
 import Biblioteca.Validations.UserValidations;
 
 import java.util.Scanner;
@@ -12,7 +13,17 @@ public class UserInputStream {
 
     private static UserValidations validate = new UserValidations();
 
-    public void addNewUserToDatabaseByKeyboard(){
+    public void deleteUserFromDatabaseUsingScanner(){
+
+        UserProcessor userProcessor = new UserProcessor();
+        UserOutputStream userOutputStream = new UserOutputStream();
+
+        User user =userOutputStream.getUserFromDatabaseUsingScanner();
+
+        userProcessor.deleteUser(user);
+    }
+
+    public void addNewUserToDatabaseUsingScanner(){
         UserProcessor userProcessor = new UserProcessor();
 
         RankOutputStream outputStream = new RankOutputStream();

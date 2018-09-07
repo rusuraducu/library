@@ -9,8 +9,8 @@ public class UserValidations extends Validation {
         if (isBlankOrNull(username)) {
             return "You have to set the username.";
         }
-        if (underMinimumLength(username, 8)) {
-            return "The username should contain at leat 8 letters.";
+        if (underMinimumLength(username, 6)) {
+            return "The username should contain at least 6 letters.";
         }
         if (overMaximumLength(username, 15)) {
             return "The username should contain maximum 15 letters.";

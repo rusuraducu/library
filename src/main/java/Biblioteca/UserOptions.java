@@ -2,13 +2,12 @@ package Biblioteca;
 
 import Biblioteca.DAO.Book.Book;
 import Biblioteca.DAO.Book.BookFilter;
-import Biblioteca.Presentation.InputStreams.BookInputStream;
+import Biblioteca.Presentation.InputStreams.*;
 import Biblioteca.Actions.BookProcessor;
 import Biblioteca.Actions.LendingProcessor;
 import Biblioteca.DAO.RetireItem.RetireReason;
 import Biblioteca.Actions.RetiringProcessor;
 import Biblioteca.DAO.User.User;
-import Biblioteca.Presentation.InputStreams.UserInputStream;
 import Biblioteca.Actions.UserProcessor;
 
 public class UserOptions {
@@ -20,7 +19,13 @@ public class UserOptions {
     private static LendingProcessor lendingProcessor = new LendingProcessor();
     private static RetiringProcessor retiredItem = new RetiringProcessor();
     private static UserInputStream userInputStream = new UserInputStream();
+    private static LendItemInputStream lendItemInputStream = new LendItemInputStream();
+    private static RetireItemInputStream retireItemInputStream = new RetireItemInputStream();
+    private static TypeInputStream typeInputStream = new TypeInputStream();
 
+    public User getUser() {
+        return user;
+    }
 
     private UserOptions(User user) {
         this.user = user;
@@ -31,108 +36,12 @@ public class UserOptions {
         return new UserOptions(user);
     }
 
-    public void addNewUserToDatabase() {
-        if (isAdmin ( )) { userInputStream.addNewUserToDatabaseByKeyboard();}
-    }
-
-    public void updateUserFromDatabase(User user) {
-        if (isAdmin ( )) {
-            userProcessor.updateUserFromDatabase(user);}
-    }
-
-    public void deleteUserFromDatabase(User user) {
-        if (isAdmin ( )) { userProcessor.deleteUser(user);}
-    }
-
-    public void searchUser(String userName){
-
-        User user = UserProcessor.loadUserInstance(userName);
-
-        if(user!=null){
-            System.out.println(user);
-        }
-
-    }
-
-    public void printListOfUsers() {
-
-        if (isAdmin ( )) {      userProcessor.printUserList();}
-        System.out.println("\n");
-    }
-
-    public void addNewBook(Book book) {
-
-        if (isLibrarian ( )) {    bookProcessor.addNewBookToDatabase(book, user);                   }
-
-    }
-
-    public void addNewBookToDatabaseUsingScanner() {
-
-        if (isLibrarian ( )) {     new BookInputStream().addNewBookToDatabaseByKeyboard(user);      }
-
-    }
-
-    public void searchContent(BookFilter bookFilter){
-
-        if (isLibrarian ( )) {    bookProcessor.loadListOfBooksFromDatabaseUsingFilter(bookFilter); }
-
-    }
-
-    public void updateBookDetails(Book book){
-
-        if (isLibrarian ( )) { bookProcessor.updateBookFromDatabaseDatabase(book, user);}
-
-    }
-
-    public void showBooksUsingFilter(BookFilter bookFilter) {
-
-        if (isLibrarian ( )) {  bookProcessor.loadListOfBooksFromDatabaseUsingFilter(bookFilter);       }
-
-        System.out.println("\n");
-    }
-
-    public void showAllBooksFromLibrary() {
-
-        if (isLibrarian ( )) {  bookProcessor.loadListOfBooksFromDatabaseUsingFilter(new BookFilter()); }
-
-        System.out.println("\n");
-    }
-
-    public void lendBook(Book book, User toStudent){
-
-        if (isLibrarian ( )) {  lendingProcessor.lendBookToStudent(book, toStudent, user); }// Default 14 days
-
-    }
-
-    public void returnBook(Book book){
-
-        if (isLibrarian ( )) { lendingProcessor.returnBookToLibrary(book             ); }
-
-    }
-
-    public void retireBook(Book book, RetireReason retireReason){
-
-        if (isLibrarian ( )) { retiredItem.retireBook(book, user, retireReason      );  }
-
-    }
-
-    public void printRetiredBooks(){
-
-        if (isLibrarian ( )) { retiredItem.showRetiredBooks                     (   );  }
-
-    }
-
-    public void printCurrentlyLentItems(){
-
-        if (isLibrarian ( )) { lendingProcessor.showBooksWhichAreCurrentlyLent  (   );  }
-
-    }
-
-    public void printLentBooksWhichAreOverdue(){
-
-        if (isLibrarian( ) ) { lendingProcessor.showLentBooksWhichAreOverdue    (   );  }
-
-    }
+    /****
+     *
+     * The following 3 methods from this class ensure that the content of this object is accessed only the the users
+     * who has the right to do it.
+     *
+     ****/
 
     private boolean loggedIn() {
         if (user == null) {
@@ -156,5 +65,143 @@ public class UserOptions {
             return false;
         }
         return true;
+    }
+
+    /**
+     *  Admin options
+     */
+
+    public void updateUserFromDatabase(User user) {
+        if (isAdmin ( )) {
+            userProcessor.updateUserFromDatabase(user);}
+    }
+
+    public void deleteUserFromDatabase(User user) {
+        if (isAdmin ( )) {
+            userProcessor.deleteUser(user);}
+    }
+
+    public void  addNewUserToDatabase(User user){
+        if (isAdmin ( )) {
+            userProcessor.addNewUserToDatabase(user);}
+    }
+
+    public void printListWithUsers() {
+
+        if (isAdmin ( )) {      userProcessor.printUserList();}
+        System.out.println("\n");
+    }
+
+
+    /**
+     * Librarian options
+     */
+
+    public void addNewBookToDatabase(Book book) {
+
+        if (isLibrarian ( )) {    bookProcessor.addNewBookToDatabase(book, user);                   } }
+
+
+    public void searchContent(BookFilter bookFilter){
+
+        if (isLibrarian ( )) {    bookProcessor.loadListOfBooksFromDatabaseUsingFilter(bookFilter); }
+
+    }
+
+    public void updateBookDetails(Book book){
+
+        if (isLibrarian ( )) { bookProcessor.updateBookFromDatabaseDatabase(book, user);} }
+
+
+    public void showBooksUsingFilter(BookFilter bookFilter) {
+
+        if (isLibrarian ( )) {  bookProcessor.loadListOfBooksFromDatabaseUsingFilter(bookFilter);       }
+        System.out.println("\n");
+    }
+
+    public void printRetiredBooks(){
+
+        if (isLibrarian ( )) { retiredItem.showRetiredBooks                     (   );  }
+
+    }
+
+    public void printLentBooksWhichAreOverdue(){
+
+        if (isLibrarian( ) ) { lendingProcessor.showLentBooksWhichAreOverdue    (   );  }
+
+    }
+
+    public void printAllBooksFromLibrary() {
+
+        if (isLibrarian ( )) {  bookProcessor.loadListOfBooksFromDatabaseUsingFilter(new BookFilter()); }
+
+        System.out.println("\n");
+    }
+
+    public void lendBook(Book book, User toStudent){
+
+        if (isLibrarian ( )) {  lendingProcessor.lendBookToStudent(book, toStudent, user); }// Default 14 days
+
+    }
+    public void returnBook(Book book){
+
+        if (isLibrarian ( )) { lendingProcessor.returnBookToLibrary(book             ); }
+
+    }
+
+    public void retireBook(Book book, RetireReason retireReason){
+
+        if (isLibrarian ( )) { retiredItem.retireBook(book, user, retireReason      );  }
+
+    }
+
+
+    public void printCurrentlyLentItems(){
+
+        if (isLibrarian ( )) { lendingProcessor.showBooksWhichAreCurrentlyLent  (   );  }
+
+    }
+
+    /**
+     * The following methods are used for 'Presentation'. They are the same as some of the previous ones but
+     * they don't need any parameters. The will get all the parameters they need using Scanner object during
+     * the presentation time.
+     */
+
+    //Admin options
+
+    public void addNewUserToDatabaseUsingScanner() {
+        if (isAdmin ( )) { userInputStream.addNewUserToDatabaseUsingScanner();}
+    }
+
+    public void deleteUserFromDatabaseUsingScanner() {
+        if (isAdmin ( )) { userInputStream.deleteUserFromDatabaseUsingScanner();}
+    }
+
+    public void addNewItemTypeToDatabaseUsingScanner(){
+        if(isAdmin      ( )) { typeInputStream.addNewTypeToDatabaseUsingScanner(); }
+    }
+
+    //Librarian options
+
+    public void lendBookUsingScanner(){
+
+        if (isLibrarian ( )) {  lendItemInputStream.lendBookUsingKeyboard(user); }// Default 14 days
+
+    }
+
+    public void addNewBookToDatabaseUsingScanner() {
+
+        if (isLibrarian ( )) {     new BookInputStream().addNewBookToDatabaseByKeyboard(user);      } }
+
+
+    public void returnBookUsingScanner(){
+
+        if (isLibrarian ( )) { lendItemInputStream.returnBookUsingKeyboard(); }// Default 14 days
+
+    }
+
+    public void retireBookUsingScanner(){
+        if (isLibrarian ( )) {  retireItemInputStream.retireBookUsingScanner(user); }
     }
 }

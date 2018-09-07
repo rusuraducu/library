@@ -23,7 +23,7 @@ public class LendingProcessor extends Processor {
 
         if(!lendingMessageValidation.equals("OK")){
 
-            print(lendingMessageValidation);
+            print(lendingMessageValidation); return;
 
         }
 

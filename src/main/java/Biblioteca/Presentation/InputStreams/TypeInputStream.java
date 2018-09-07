@@ -35,10 +35,4 @@ public class TypeInputStream {
 
         typeProcessor.addNewItemTypeToDatabase( setNewItemType( ) );
     }
-
-    public static void main(String[] args) {
-        TypeInputStream inputStream = new TypeInputStream();
-
-        inputStream.addNewTypeToDatabaseUsingScanner();
-    }
 }

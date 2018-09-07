@@ -12,7 +12,6 @@ public class LendItemInputStream {
 
     public void lendBookUsingKeyboard(User librarian){
 
-        LendingProcessor bookProcessor = new LendingProcessor();
         BookOutputStream bookOutputStream = new BookOutputStream();
         UserOutputStream userOutputStream = new UserOutputStream();
 
@@ -23,14 +22,13 @@ public class LendItemInputStream {
         lendingProcessor.lendBookToStudent(book, toStudent, librarian);
     }
 
-    public void returnBookUsingKeyboard(User librarian){
+    public void returnBookUsingKeyboard(){
 
-        LendingProcessor bookProcessor = new LendingProcessor();
         BookOutputStream bookOutputStream = new BookOutputStream();
 
-        System.out.println("Lend a book: ");
-        Book book = bookOutputStream.getBookFromDatabaseUsingScanner();
+        System.out.println("Return a book: ");
 
+        Book book = bookOutputStream.getBookFromDatabaseUsingScanner();
 
         lendingProcessor.returnBookToLibrary(book);
     }

@@ -14,7 +14,7 @@ public class LendingValidation {
         }
         if(!toUser.getRank().getRankName().equals("Student")){
 
-            return "Only students can lend book from this library";
+            return "Only students can borrow book from this library";
         }
 
         if(!book.getStatus().equals(Status.AVAILABLE)){

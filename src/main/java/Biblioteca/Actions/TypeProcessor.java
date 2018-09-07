@@ -37,6 +37,7 @@ public class TypeProcessor extends Processor {
     }
 
     public void addNewItemTypeToDatabase(String typeName) {
+
         Type  type = new Type(typeName);
 
         if (QUERIES.insertNewItemTypeToDatabase(type.getTypeName()) == 1) {
