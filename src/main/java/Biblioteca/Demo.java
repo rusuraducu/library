@@ -13,7 +13,7 @@ public class Demo {
          *  Librarian       | Username: Librarian     | Password: myPassword |
          */
 
-        User user = Login.getUsernameInstance("Octavian", "myPassword");
+        User user = Login.getUsernameInstance("Librarian", "myPassword");
 
         UserOptions userOptions = UserOptions.getUserOptions(user);
 
