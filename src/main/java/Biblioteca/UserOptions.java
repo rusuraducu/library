@@ -164,7 +164,7 @@ public class UserOptions {
 
     /**
      * The following methods are used for 'Presentation'. They are the same as some of the previous ones but
-     * they don't need any parameters. The will get all the parameters they need using Scanner object during
+     * they don't need any parameters. They will get all the parameters they need using Scanner object during
      * the presentation time.
      */
 
