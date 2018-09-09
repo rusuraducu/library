@@ -26,7 +26,7 @@ public class Demo {
  ****
  * In versiunea demo sunt introduse doar o parte din optiunile pe care le ofera aceasta aplicatie.
  *
- * Pe langa aceaste optiuni din versiunea demo, aplicatia mai ofera si alte optiuni:
+ * Pe langa aceaste optiuni din versiunea demo, aplicatia va mai oferi si alte optiuni:
  *
  * ---> Pentru admin: -| Modifica detalii utilizator (nume, prenume, parola, email etc.)
  *                    -| Adauga un nou tip de iteme
