@@ -13,7 +13,7 @@ public class Demo {
          *  Librarian       | Username: Librarian     | Password: myPassword |
          */
 
-        User user = Login.getUsernameInstance("Librarian", "myPassword");
+        User user = Login.getUsernameInstance("Administrator", "myPassword");
 
         UserOptions userOptions = UserOptions.getUserOptions(user);
 
@@ -42,4 +42,4 @@ public class Demo {
  * --> Versinea full a acestui program va avea implementate si module pentru gestionarea altor tipuri de date din
  * biblioteca, cum ar fi: Media, Articole, Reviste etc. Baza de date dar si alte clase din cadrul acestui program
  * au fost concepute in asa fel incat sa permita extinderea programului fara prea multe modificari.
- *****
+ *****/

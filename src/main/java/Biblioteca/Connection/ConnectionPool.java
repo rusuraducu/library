@@ -10,9 +10,9 @@ public class ConnectionPool {
         static{
 
             HikariConfig config = new HikariConfig();
-            config.setJdbcUrl("jdbc:mysql://localhost/library?useSSL=false");
+            config.setJdbcUrl("jdbc:mysql://127.0.0.1:3306/library?useSSL=false");
             config.setUsername("root");
-            config.setPassword("passwordmysql");
+            config.setPassword("password");
             config.setDriverClassName("com.mysql.jdbc.Driver");
             config.addDataSourceProperty("cachePrepStmts", "true");
             config.addDataSourceProperty("prepStmtCacheSize", "250");
